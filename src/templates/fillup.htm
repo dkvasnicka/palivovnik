@@ -1,0 +1,69 @@
+<div id="main-content">
+    <h3>Záznam o tankování paliva</h3>
+
+    <form ng-controller="FillupController" ng-submit="save()"> 
+        <ul class="errors">
+            <li ng-repeat="e in errors">{{e}}</li>
+        </ul>
+
+        <fieldset>
+            <legend>Základní údaje</legend>
+            <div class="controls pull-left span5">
+
+                <input type="hidden" ng-model="fillup._id" id="fid" />
+
+                <label>Datum</label>
+                <input type="text" ui-date required ng-model="fillup.date" />
+
+                <label>Stav tachometru</label>
+                <input type="number" name="fillup.odo" min="0" required ng-model="fillup.odo" />
+
+                <label>Podíl městského provozu (%)</label>
+                <input type="number" name="fillup.city-driving" min="0" max="100" ng-model="fillup.city_driving" />
+
+                <label>Předchozí tankování chybí (nelze pro toto tankování spočítat spotřebu)</label>
+                <input type="checkbox" name="fillup.missed" ng-model="fillup.missed" />                
+            </div> 
+            <div class="controls pull-left span5" ng-controller="MapController">
+
+                <label>Adresa čerpací stanice</label>
+                <input type="text" ng-model="address" class="input-xlarge" />
+                <span ng-click="geocode()" class="btn btn-small">Vyhledat</span>
+
+                <div id="map-canvas" style="width: 500px; height: 300px"></div>
+            </div> 
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                Fáze tankování
+                <button class="btn pull-right" type="button" ng-click="addPhase()">
+                    <i class="icon-plus-sign" /> Přidat fázi tankování
+                </button>            
+            </legend>
+
+            <div class="fillupPhase span5 pull-left" ng-repeat="p in fillup.phases">
+                <h4 class="badge"># {{$index + 1}}</h4>
+
+                <button class="btn btn-mini btn-danger" type="button" ng-click="removePhase($index)"
+                    ng-hide="$index == 0">
+                    Odstranit
+                </button>
+
+                <label>Typ paliva</label>
+                <select name="fillup.phases[{{$index}}].fuel" required ng-model="p.fuel" id="fuelselect">
+                </select>                
+                
+                <label>Množství paliva (l)</label>
+                <input type="number" name="fillup.phases[{{$index}}].volume" min="1" required step="0.01" ng-model="p.volume" />
+
+                <label>Cena za 1l (Kč)</label>
+                <input type="number" name="fillup.phases[{{$index}}].perunit" min="1" required step="0.01" ng-model="p.perunit" />
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <input type="submit" class="btn btn-inverse pull-right btn-large" value="Uložit" id="fillupsubmit" />
+        </fieldset>
+    </form>
+</div>

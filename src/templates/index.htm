@@ -1,0 +1,36 @@
+<div id="loginArea">
+    <style media="screen" type="text/css">
+    h1 {
+        text-align: center !important;
+    }
+    </style>
+    <img src="img/auto.png" id="titlepic" />
+    <p>
+    Palivovník je web, který vám umožní jednoduše a přehledně vést záznamy o tankování
+    paliva do vašeho vozu. Je to také první web svého druhu, který vám umožní zadat pro každé tankování
+    libovolnou kombinaci druhů paliv. Kombinujete třeba benzín s E85 a nebaví vás ťukání
+    do kalkulačky? Tady nemusíte. Palivovník ukládá a počítá vše za vás.
+    </p>
+    <p>A jak to celé vypadá? <a href="/c/8/saab-9-5">Třeba takhle.</a></p>
+    <p>Přihlašte se s pomocí účtu Google, Facebooku nebo Twitteru</p>
+    <ul class="sociallogin">
+        <li>
+            <span id="signinButton">
+                <span
+                    class="g-signin"
+                    data-callback="signinCallback"
+                    data-clientid=""
+                    data-cookiepolicy="single_host_origin"
+                    data-requestvisibleactions="http://schemas.google.com/AddActivity"
+                    data-theme="dark"
+                    data-width="wide"
+                    data-scope="https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email">
+                </span>
+            </span>
+        </li>
+    </ul>
+    <ul class="sociallogin">
+        <li><a href="#" id="fblogin"><img src="img/social_login_fb.png" alt="Přihlásit se přes Facebook" /></a></li>
+        <li><a href="/oauth/twitter/login"><img src="img/social_login_twitter.png" alt="Přihlásit se přes Twitter" /></a></li>
+    </ul>
+</div>

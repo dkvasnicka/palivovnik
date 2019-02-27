@@ -1,0 +1,82 @@
+body {
+    padding-top: 20px;
+    padding-bottom: 40px;
+
+}
+
+.errors {
+    color: red;
+}    
+
+/* Custom container */
+.container-narrow {
+    margin: 0 auto;
+    max-width: 900px;
+}
+.container-narrow > hr {
+    margin: 30px 0;
+}
+
+#stats {
+    margin: 20px 0;
+}
+
+#stats div {
+    margin-right: 20px;
+}    
+
+#chart {
+    height: 300px;
+    margin: 30px 0 0 0;
+}    
+
+.statbox {
+    float: right;
+}
+
+#dashTitle {
+    float: left;
+}
+
+fieldset {
+    margin: 10px 0;
+    border-top: 1px #efefef solid;
+    padding: 10px 0;
+}
+
+.sociallogin {
+    list-style-type: none;
+}    
+
+.sociallogin li {
+    margin: 10px;
+}   
+
+#loginArea {
+    text-align: center;
+}
+
+#loginArea p {
+    margin: 30px 0;
+}    
+
+#footer {
+    color: #ababab;
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+}    
+
+h1 a:hover {
+    text-decoration: none;
+}    
+
+#titlepic {
+    padding-left: 50px;
+}    
+
+#carname {
+    display: block;
+    font-size: 1.7em;
+    height: 1.5em;
+}    

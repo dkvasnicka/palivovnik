@@ -1,0 +1,62 @@
+<div id="main-content" ng-controller="FillupListController">
+    
+    <div id="dashTitle">
+        <select id="carname" ng-model="currentCar" ng-options="car.data.label for car in cars" ng-change="changeCar()">
+        </select>
+        <a href="" id="permalink">Veřejný odkaz na tento vůz</a>
+    </div>
+
+    <div id="stats">
+        <div class="label label-info statbox" id="avgCons">Průměrná spotřeba <h3 id="cons" /> l / 100 km</div>
+        <div class="label label-info statbox" id="avgPricePerKm">Průměrná cena / km <h3 id="pricePerKm" /> Kč</div>
+        <div class="label label-info statbox" id="avgPricePerL">Průměrná cena / l <h3 id="pricePerL" /> Kč</div>
+    </div>
+    <br style="clear: both" />
+
+    <div ng-controller="DashboardChartController" class="chart">
+        <div id="chart"></div>
+    </div>
+
+    <p class="restricted">
+        <a href="/fillup" class="btn btn-primary">Natankovat!</a>
+    </p>
+
+    <table id="fillups" class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Datum</th>
+                <th>Stav tachometru (km)</th>
+                <th>Množství paliva (l)</th>
+                <th>Spotřeba (l / 100 km)</th>
+                <th>Cena za litr PHM (Kč)</th>
+                <th>Podíl městského provozu (%)</th>
+                <th class="restricted"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="f in fillups">
+                <td>{{f.date | date:'dd.MM.yyyy'}}</td>
+                <td>{{f.odo}}</td>
+                <td>{{f.phases | totalFuelAmount}}</td>
+                <td>{{f.cons | number:1}}</td>
+                <td>{{f.phases | avgPricePerUnit}}</td>
+                <td>{{f.city_driving}}</td>
+                <td class="restricted">
+                    <a href="/fillup/{{f._id}}/edit" class="btn btn-mini">
+                        <span class="icon-white icon-edit"></span> Upravit
+                    </a>
+                    <span ng-click="deleteFillup(f._id)" class="btn btn-danger btn-mini">
+                        <span class="icon-white icon-remove"></span> Smazat
+                    </span>
+                </td>
+            </tr>   
+        </tbody>
+    </table>
+
+
+    <div>
+        <pagination num-pages="noOfPages" current-page="currentPage" 
+            class="pagination-small" previous-text="&laquo;" next-text="&raquo;"></pagination>
+    </div>
+    
+</div>

@@ -1,0 +1,82 @@
+<div id="newuser">
+    <h3>Vítáme nového uživatele!</h3>
+
+    <p>
+    K dokončení registrace stačí už jen vyplnit pár detailů o vašem vozu či motorce.
+    Proč tolik informací? Čím více budeme o vašem přemisťovadle vědět, tím přesněji se nám podaří začlenit vás do sítě
+    našich uživatelů a poskytovat vám relevantní informace.
+    </p>
+
+    <form method="post" ng-controller="NewCarController" ng-submit="save()"> 
+        <ul class="errors">
+            <li ng-repeat="e in errors">{{e}}</li>
+        </ul>
+
+        <fieldset id="emailInfo">
+            <legend>Informace o uživateli</legend>
+            
+            <div class="controls span4">
+                <label>Twitter nám neumožňuje automaticky získat váš e-mail. Proto prosíme o jeho zadání.</label>
+                <input type="email" class="input-xlarge" required ng-model="data.user.email" />
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Informace o vozidle</legend>
+
+            <div class="controls pull-left span4">
+                <label>Značka</label>
+                <select id="carmarques" required ng-change="loadModels()" ng-model="data.car.marque.name">
+                    <option value="">-- vyberte ze seznamu --</option>
+                </select>
+
+                <label>Model</label>
+                <select id="cartype" required ng-model="data.car.type">
+                    <option ng-repeat="t in models" value="{{t}}">{{t}}</option>
+                </select>
+
+                <label>Rok výroby</label>
+                <input type="number" min="1950" id="caryear" required ng-model="data.car.year" />
+
+                <label>Země původu</label>
+                <select id="carcountry" ng-model="data.car.marque.country">
+                    <option value="">-- vyberte ze seznamu --</option>                    
+                </select>
+
+                <label>Typ paliva</label>
+                <select required ng-model="data.car.engine.fuel">
+                </select>                
+                <label>Konfigurace motoru a počet válců</label>
+                <select ng-model="data.car.engine.configuration" class="span2" required>
+                </select>
+                <select ng-model="data.car.engine.cylinders" class="span1" required>
+                </select>
+            </div> 
+
+            <div class="controls span4">
+                <label>Objem (ccm)</label>
+                <input type="number" ng-model="data.car.engine.displacement" min="1" required />
+                <label>Max. výkon (kW)</label>
+                <input type="number" ng-model="data.car.engine.power" min="1" />
+                <label>Max. točivý moment (Nm)</label>
+                <input type="number" ng-model="data.car.engine.torque" min="1" />
+                <label>Přeplňování</label>
+                <select ng-model="data.car.engine.aspiration">
+                    <option value="">-- vyberte ze seznamu --</option>
+                </select>
+                <label>Převodovka</label>
+                <select ng-model="data.car.transmission.type" required>
+                </select>
+                <label>Počet převodových stupňů</label>
+                <input type="number" ng-model="data.car.transmission.gears" required min="1" />
+            </div> 
+        </fieldset>
+        
+        <fieldset>
+            <p>
+                Vytvořením účtu souhlasíte s využitím vaší e-mailové adresy k zasílání oznámení týkajících se provozu tohoto webu.
+                <strong>Žádný spam, slibuju!</strong>
+            </p>
+            <button type="submit" class="btn btn-inverse pull-right btn-large submitbutton">Vytvořit účet</button>    
+        </fieldset>
+    </form>
+</div>

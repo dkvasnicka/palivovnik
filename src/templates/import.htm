@@ -1,0 +1,27 @@
+<div id="import">
+    <h3>Import dat</h3>
+
+    <p>
+    Zde máte možnost importovat data z konkurenčních služeb. 
+    Víte o nějaké, která zde není (a umožňuje uživatelům exportovat data)? Ozvěte se!
+    </p>
+
+    <form method="post" enctype="multipart/form-data"> 
+        <ul class="errors" id="errs">
+           
+        </ul>
+        
+        <fieldset>
+            <label>Služba</label>
+            <select name="dsource" id="dsource">            
+            </select>           
+
+            <label>Soubor s daty</label>
+            <input type="file" name="data" />
+        </fieldset>
+        
+        <fieldset>
+            <button type="submit" class="btn btn-inverse pull-right btn-large">Importovat data</button>    
+        </fieldset>
+    </form>
+</div>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="Palivovnik">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Palivovník</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Daniel Kvasnicka">
+
+        <!-- CSS bullshit -->
+        <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <script src="//use.edgefonts.net/asap.js"></script>
+        <link type="text/css" href="/css/custom.css" rel="stylesheet" />
+        <link type="text/css" href="/css/jquery-ui.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="/css/c3.css">
+
+        <!-- jQuery basics -->
+        <script type="text/javascript" src="/jslibs/lodash.min.js"></script>
+        <script type="text/javascript" src="/jslibs/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="/jslibs/jquery-ui.js"></script>
+        <script type="text/javascript" src="/jslibs/angular.min.js"></script>
+        <script type="text/javascript" src="/jslibs/angular-resource.min.js"></script>
+        <script type="text/javascript" src="/jslibs/angular-ui/date.js"></script>
+        <script type="text/javascript" src="/jslibs/ui-bootstrap-tpls-0.3.0.min.js"></script>
+        <script type="text/javascript" src="/jslibs/promise.min.js"></script>
+        <script type="text/javascript" src="/js/utils.js"></script>
+        <script type="text/javascript" src="/js/resources.js"></script>
+
+        <page-scripts />
+    </head>
+
+    <body>
+        <div id="fb-root"></div>
+
+        <div class="container-narrow">
+            <div class="masthead">
+                <ul class="nav nav-pills pull-right restricted" id="menu">
+                    <li><a href="/cars">Moje auta</a></li>
+                    <li><a href="/dashboard">Můj palivovník</a></li>
+                    <!--
+                    <li><a href="/friends">Kamarádi</a></li>
+                    -->
+                    <li><a href="/import">Import dat</a></li>
+                    <li><a href="/logout">Odhlásit</a></li>
+                </ul>
+                <h1 class="muted"><a href="/">Palivovník</a></h1>
+            </div>
+
+            <main />
+            <p id="footer">Tvoří <a href="https://twitter.com/dkvasnickajr">@dkvasnickajr</a></p>
+
+        </div> <!-- /container -->
+
+        <script src="/bootstrap/js/bootstrap.js"></script>
+
+
+
+
+    </body>
+</html>
